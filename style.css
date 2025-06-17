@@ -1,0 +1,52 @@
+body {
+      font-family: 'Arial', sans-serif;
+      background: #111;
+      margin: 0;
+      padding: 40px;
+      color: #fff;
+    }
+    .header {
+        text-align: center; 
+        color: #fbc531; 
+        margin-bottom: 30px; 
+        font-size: 2rem;
+    }
+    .project-cards {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .project-box {
+      background: #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(255, 215, 0, 0.1);
+      width: 280px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      border: 1px solid #fbc531;
+    }
+    .project-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+    }
+    .project-box img {
+      width: 100%;
+      height: auto;
+    }
+    .project-box h3 {
+      font-size: 1.1rem;
+      margin: 10px 0 5px;
+      color: #fbc531;
+    }
+    .project-box p {
+      color: #ddd;
+      font-size: 0.95rem;
+      padding: 0 15px 15px;
+    }
+    .project-box a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }

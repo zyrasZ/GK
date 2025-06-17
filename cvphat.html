@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Nguyễn Lê Thái Phát - Frontend Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="cvphat.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://kit.fontawesome.com/00159bd6b4.js" crossorigin="anonymous"></script>
+    <style>
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        .profile-img:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+        }
+        .section-title {
+            font-size: 2.5rem;
+            color: #00ffcc;
+            transition: transform 0.3s ease, font-size 0.3s ease;
+        }
+        .section-title:hover {
+            transform: scale(1.15);
+            font-size: 2.7rem;
+        }
+        .progress-bar {
+            width: 100%;
+            background: #2d3748;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .progress {
+            height: 20px;
+            background: #00ffcc;
+            border-radius: 5px;
+            transition: width 1s ease;
+        }
+        .project-card {
+            background: #2d3748;
+            border: 2px solid #00ffcc;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        .content-section {
+            font-size: 1.3rem;
+            line-height: 2;
+        }
+        @media (max-width: 640px) {
+            .section-title { font-size: 2rem; }
+            .content-section { font-size: 1.1rem; }
+            .project-card { margin: 5px; width: 100%; }
+            .horizontal-header { padding: 10px 15px; }
+            .profile-img { width: 120px; height: 120px; }
+            .content { margin-top: 150px; } /* Tăng margin-top cho mobile */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <div class="parallax-background"></div>
+    <div class="dynamic-overlay"></div>
+    <header class="horizontal-header fade-in fixed top-0 w-full z-10">
+        <img src="avatar2.jpg" alt="Profile Picture" class="profile-img">
+        <div class="title-block">
+            <h1 class="text-4xl font-bold text-cyan-400">NGUYEN LE THAI PHAT</h1>
+            <p class="text-2xl text-gray-300">FRONTEND DEVELOPER</p>
+        </div>
+        <nav class="nav-horizontal">
+            <a href="#info" class="hover:text-cyan-400">INFORMATION</a>
+            <a href="#career" class="hover:text-cyan-400">CARRER OBJECTIVE</a>
+            <a href="#hobbies" class="hover:text-cyan-400">HOBBIES</a>
+            <a href="#awards" class="hover:text-cyan-400">AWARDS</a>
+            <a href="#skills" class="hover:text-cyan-400">SKILLS</a>
+            <a href="#projects" class="hover:text-cyan-400">PROJECTS</a>
+            <a href="#contact" class="hover:text-cyan-400">CONTACT</a>
+        </nav>
+    </header>
+
+    <div class="content mt-32"> <!-- Tăng margin-top từ mt-24 thành mt-32 -->
+        <section id="info" class="card-section fade-in">
+            <div class="card">
+                <h2 class="section-title">INFORMATION</h2>
+                <div class="content-section">
+                    <ul>
+                        <li><i class="fas fa-calendar-alt"></i> Date of birth: 10/10/2005</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Address: 226/1 Nguyen Van Luong - Ward 17 - Go Vap District - Ho Chi Minh City</li>
+                        <li><i class="fa-solid fa-envelope"></i> Email: Thaiphat5b@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> Tel: 0565 356 513</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="career" class="card-section fade-in">
+            <div class="card">
+                <h2 class="section-title">CARRER OBJECTIVE</h2>
+                <div class="content-section">
+                    <p>I AM A 2ND YEAR STUDENT AT HO CHI MINH CITY UNIVERSITY OF TRANSPORT, MASTERING INFORMATION TECHNOLOGY. I AM DEVELOPING MY PROGRAMMING SKILLS TO BECOME A PROFESSIONAL FRONTEND DEVELOPER.</p>
+                    <ul>
+                        <li>FIELD OF EXPERTISE: WEB INTERFACE DEVELOPMENT With HTML, CSS, JAVASCRIPT</li>
+                        <li>GOAL: BECOME A PROFESSIONAL FRONTEND DEVELOPER, CREATING EFFECTIVE WEB PRODUCTS</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="hobbies" class="card-section fade-in">
+            <div class="card">
+                <h2 class="section-title">HOBBIES</h2>
+                <div class="content-section skills-grid">
+                    <div class="skill-card">
+                        <div class="icon"><i class="fa-solid fa-headphones"></i></div>
+                        <h3>Music</h3>
+                    </div>
+                    <div class="skill-card">
+                        <div class="icon"><i class="fas fa-futbol"></i></div>
+                        <h3>Sports</h3>
+                    </div>
+                    <div class="skill-card">
+                        <div class="icon"><i class="fas fa-laptop-code"></i></div>
+                        <h3>Coding</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="awards" class="card-section fade-in">
+            <div class="card">
+                <h2 class="section-title">CERTIFICATE - AWARDS</h2>
+                <div class="content-section">
+                    <ul>
+                        <li>Nothing</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="card-section fade-in">
+  <div class="card">
+    <h2 class="section-title">SKILLS</h2>
+    <div class="content-section">
+      <div class="skill-progress">
+        <p>HTML: <span class="text-cyan-400" data-skill="80">0%</span></p>
+        <div class="progress-bar">
+          <div class="progress" data-target="80"></div>
+        </div>
+      </div>
+      <div class="skill-progress">
+        <p>CSS: <span class="text-cyan-400" data-skill="75">0%</span></p>
+        <div class="progress-bar">
+          <div class="progress" data-target="75"></div>
+        </div>
+      </div>
+      <div class="skill-progress">
+        <p>JavaScript: <span class="text-cyan-400" data-skill="70">0%</span></p>
+        <div class="progress-bar">
+          <div class="progress" data-target="70"></div>
+        </div>
+      </div>
+      <div class="skill-progress">
+        <p>Git & GitHub: <span class="text-cyan-400" data-skill="90">0%</span></p>
+        <div class="progress-bar">
+          <div class="progress" data-target="90"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+        <section id="projects" class="card-section fade-in">
+            <div class="card">
+                <h2 class="section-title">PROJECTS</h2>
+                <div class="content-section flex flex-wrap">
+                    <div class="project-card">
+                        <h3 class="text-xl text-cyan-400" >WEB TODO-LIST-BASIC</h3>
+                        <p>Personal Projects - A basic task management web app.</p>
+                        <a href="https://github.com/zyrasZ" class="text-cyan-400 hover:underline">Link GitHub</a>
+                    </div>
+                    <div class="project-card">
+                        <h3 class="text-xl text-cyan-400">KOI FISH SELLING WEBSITE</h3>
+                        <p>Software Engineering group project - Koi fish selling website.</p>
+                        <a href="https://github.com/zyrasZ" class="text-cyan-400 hover:underline">Link GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="card-section fade-in">
+            <div class="card">
+                <h2 class="section-title">CONTACT</h2>
+                <div class="content-section">
+                    <ul>
+                        <li><i class="fa-solid fa-envelope"></i> Email: Thaiphat5b@gmail.com </li>
+                        <li><i class="fa-brands fa-facebook"></i> Facebook: <a href="https://www.facebook.com/phat.nguyenlethai/">Nguyễn Lê Thái Phát</a></li>
+                        <li><i class="fab fa-instagram"></i> Instagram: <a href ="https://www.instagram.com/nltp_97/"> nltp_97</a></li>
+                        <li><i class="fa-brands fa-github"></i> GitHub:<a href ="http://github.com/zyrasZ"> zyrasZ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-gray-800 text-center p-4 mt-8">
+        <p class="text-gray-400">© 2025 NGUYEN LE THAI PHAT | <a href="mailto:[email protected]" class="text-cyan-400 hover:underline">Contact</a> | <a href="https://github.com/zyrasZ" class="text-cyan-400 hover:underline">GitHub</a></p>
+        <p class="text-cyan-400 mt-2">HIRE ME!</p>
+    </footer>
+
+    <script type="text/javascript" defer>
+        // Xử lý hiệu ứng đánh máy khi cuộn
+    window.addEventListener('scroll', () => {
+        const sectionTitles = document.querySelectorAll('.section-title');
+        sectionTitles.forEach(title => {
+            const titleTop = title.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+                if (titleTop < windowHeight * 0.75 && titleTop > 0) {
+                    if (!title.classList.contains('typing-active')) {
+                        title.style.width = '0'; // Đặt lại chiều rộng ban đầu
+                        title.style.opacity = '1'; // Hiện đề mục
+                        title.classList.add('typing-active');
+                        title.style.animation = 'typing 3.5s steps(40, end) forwards, blink-caret 0.75s step-end infinite';
+                    }
+                } else {
+                    title.style.animation = 'none'; // Dừng animation khi ra khỏi vùng hiển thị
+                    title.classList.remove('typing-active');
+                }
+            });
+    });
+
+// Khởi động lại animation khi tải trang
+window.addEventListener('load', () => {
+    const sectionTitles = document.querySelectorAll('.section-title');
+    sectionTitles.forEach(title => {
+        title.style.width = '0';
+        title.style.opacity = '0';
+    });
+});
+        // Khởi tạo các biến toàn cục
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+
+        // Hàm tiện ích để kiểm tra xem một ô có dữ liệu hay không
+        function filledCell(cell) {
+            return cell !== '' && cell != null;
+        }
+
+        // Hàm để tải và xử lý dữ liệu file
+        function loadFileData(filename) {
+            if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+                try {
+                    var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                    var firstSheetName = workbook.SheetNames[0];
+                    var worksheet = workbook.Sheets[firstSheetName];
+
+                    // Chuyển đổi sheet thành JSON để lọc các hàng trống
+                    var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                    var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                    // Thuật toán để tìm hàng tiêu đề
+                    var headerRowIndex = filteredData.findIndex((row, index) =>
+                        row.filter(filledCell).length >= (filteredData[index + 1]?.filter(filledCell)?.length || 0)
+                    );
+                    if (headerRowIndex === -1 || headerRowIndex > 25) {
+                        headerRowIndex = 0;
+                    }
+
+                    // Chuyển đổi JSON đã lọc thành CSV
+                    var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
+                    csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                    return csv;
+                } catch (e) {
+                    console.error("Lỗi khi xử lý file:", e);
+                    return "";
+                }
+            }
+            return gk_fileData[filename] || "";
+        }
+
+        // Xử lý đầu vào file (tùy chọn)
+        document.getElementById('fileInput')?.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const base64 = e.target.result.split(',')[1];
+                gk_fileData[file.name] = base64;
+                gk_xlsxFileLookup[file.name] = true;
+                gk_isXlsx = true;
+                console.log(loadFileData(file.name));
+            };
+            reader.readAsDataURL(file);
+        });
+
+        // Xử lý cuộn trang
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.card-section');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (cardTop < windowHeight * 0.75) {
+                    card.classList.add('in-view');
+                }
+            });
+            const progressBars = document.querySelectorAll('.progress');
+            progressBars.forEach(bar => {
+                bar.style.width = bar.getAttribute('style').match(/width: (\d+)%/)[1] + '%';
+            });
+        });
+        window.addEventListener('load', () => {
+            const nav = document.querySelector('.horizontal-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('header-shrink');
+                } else {
+                    nav.classList.remove('header-shrink');
+                }
+            });
+        });
+        window.addEventListener('scroll', () => {
+  const cards = document.querySelectorAll('.card-section');
+  cards.forEach(card => {
+    const cardTop = card.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    if (cardTop < windowHeight * 0.75) {
+      card.classList.add('in-view');
+    }
+  });
+
+  // Kích hoạt animation cho thanh tiến độ
+  const progressBars = document.querySelectorAll('.progress');
+  progressBars.forEach(bar => {
+    const cardSection = bar.closest('.card-section');
+    if (cardSection && cardSection.classList.contains('in-view')) {
+      const targetWidth = bar.getAttribute('style').match(/width: (\d+)%/)[1];
+      if (bar.style.width !== `${targetWidth}%`) {
+        bar.style.width = `${targetWidth}%`; // Kích hoạt animation
+      }
+    }
+  });
+
+  // Kích hoạt hiệu ứng đánh máy khi cuộn
+  const sectionTitles = document.querySelectorAll('.section-title');
+  sectionTitles.forEach(title => {
+    const titleTop = title.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    if (titleTop < windowHeight * 0.75 && titleTop > 0) {
+      if (!title.classList.contains('typing-active')) {
+        title.style.width = '0';
+        title.style.opacity = '1';
+        title.style.borderRight = '0.15em solid #00ffcc';
+        title.classList.add('typing-active');
+        title.style.animation = 'typing 3.5s steps(40, end) forwards';
+        title.addEventListener('animationend', () => {
+          title.style.borderRight = 'none';
+        }, { once: true });
+      }
+    } else {
+      title.style.animation = 'none';
+      title.classList.remove('typing-active');
+      title.style.borderRight = 'none';
+    }
+  });
+});
+
+// Khởi động lại animation khi tải trang
+window.addEventListener('load', () => {
+  const nav = document.querySelector('.horizontal-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav.classList.add('header-shrink');
+    } else {
+      nav.classList.remove('header-shrink');
+    }
+  });
+
+  const sectionTitles = document.querySelectorAll('.section-title');
+  sectionTitles.forEach(title => {
+    title.style.width = '0';
+    title.style.opacity = '0';
+    title.style.borderRight = 'none';
+  });
+
+  // Đặt lại width ban đầu cho thanh tiến độ
+  const progressBars = document.querySelectorAll('.progress');
+  progressBars.forEach(bar => {
+    bar.style.width = '0';
+  });
+});
+// Xử lý cuộn trang
+window.addEventListener('scroll', () => {
+  const cards = document.querySelectorAll('.card-section');
+  cards.forEach(card => {
+    const cardTop = card.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    if (cardTop < windowHeight * 0.75) {
+      card.classList.add('in-view');
+    }
+  });
+
+  // Kích hoạt animation cho thanh tiến độ
+  const progressBars = document.querySelectorAll('.progress');
+  progressBars.forEach(bar => {
+    const cardSection = bar.closest('.card-section');
+    if (cardSection && cardSection.classList.contains('in-view')) {
+      const targetWidth = bar.getAttribute('data-target');
+      if (bar.style.width !== `${targetWidth}%`) {
+        bar.style.width = `${targetWidth}%`; // Kích hoạt animation
+      }
+    }
+  });
+
+  // Kích hoạt hiệu ứng đánh máy khi cuộn
+  const sectionTitles = document.querySelectorAll('.section-title');
+  sectionTitles.forEach(title => {
+    const titleTop = title.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    if (titleTop < windowHeight * 0.75 && titleTop > 0) {
+      if (!title.classList.contains('typing-active')) {
+        title.style.width = '0';
+        title.style.opacity = '1';
+        title.style.borderRight = '0.15em solid #00ffcc';
+        title.classList.add('typing-active');
+        title.style.animation = 'typing 3.5s steps(40, end) forwards';
+        title.addEventListener('animationend', () => {
+          title.style.borderRight = 'none';
+        }, { once: true });
+      }
+    } else {
+      title.style.animation = 'none';
+      title.classList.remove('typing-active');
+      title.style.borderRight = 'none';
+    }
+  });
+});
+
+// Khởi động lại animation khi tải trang
+window.addEventListener('load', () => {
+  const nav = document.querySelector('.horizontal-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav.classList.add('header-shrink');
+    } else {
+      nav.classList.remove('header-shrink');
+    }
+  });
+
+  const sectionTitles = document.querySelectorAll('.section-title');
+  sectionTitles.forEach(title => {
+    title.style.width = '0';
+    title.style.opacity = '0';
+    title.style.borderRight = 'none';
+  });
+
+  // Đặt lại width ban đầu cho thanh tiến độ
+  const progressBars = document.querySelectorAll('.progress');
+  progressBars.forEach(bar => {
+    bar.style.width = '0';
+  });
+
+  // Cập nhật giá trị phần trăm hiển thị
+  const skillValues = document.querySelectorAll('[data-skill]');
+  skillValues.forEach(value => {
+    const target = value.getAttribute('data-skill');
+    let current = 0;
+    const interval = setInterval(() => {
+      if (current >= target) {
+        clearInterval(interval);
+      } else {
+        current += 1;
+        value.textContent = `${current}%`;
+      }
+    }, 15); // Tăng dần mỗi 15ms
+  });
+});
+    </script>
+</body>
+</html>
